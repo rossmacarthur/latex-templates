@@ -1,0 +1,33 @@
+\input{preamble/Preamble}
+
+% Variables
+\newcommand{\thetitle}{A Really Cool Thesis Topic test}
+\newcommand{\theauthor}{John Doe}
+\newcommand{\thestream}{Electrical and Computer}
+\newcommand{\thesupervisor}{S. Z. Dlamini}
+
+\begin{document}
+\begin{sloppypar}
+
+\pagenumbering{roman}
+\input{frontmatter/Cover}
+\input{frontmatter/Declaration}
+\input{body/0--Abstract}
+
+\tableofcontents
+\listoffigures\addcontentsline{toc}{chapter}{\listfigurename}
+\listoftables\addcontentsline{toc}{chapter}{\listtablename}\newpage
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+\input{body/1--Introduction}
+\input{body/2--LiteratureReview}
+\input{body/3--Methodology}
+\input{body/4--Design}
+\input{body/5--Results}
+\input{body/6--Conclusion}
+\renewcommand{\bibname}{References}
+\bibliography{References}\addcontentsline{toc}{chapter}{References}
+
+\end{sloppypar}
+\end{document}

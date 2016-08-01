@@ -1,0 +1,58 @@
+\documentclass[hidelinks, a4paper, 12pt]{report}
+
+\usepackage{cite}     % for referencing
+\usepackage{color}    % for colouring text, specifically listings in this case
+\usepackage{fancyhdr} % for page headers
+\usepackage{flafter}  % figures, tables and listings will never be floated before they were defined
+\usepackage{graphicx} % to included images
+\usepackage{listings} % for typesetting source code
+\usepackage{textcomp} % used in listings for printing upright quotes
+
+% No hyphenation across lines
+\hyphenpenalty 10000
+
+% One-half-half spacing 
+\linespread{1.2} 
+
+% Abstract heading formatting
+\renewcommand{\abstractname}{\section*{Abstract}}
+
+% Page header modifications
+\setlength{\headheight}{15pt}
+\renewcommand{\headrulewidth}{0pt}
+
+% Linkable contents page and bookmarked final PDF
+\usepackage[pdftex                    ,%
+            bookmarks         = true  ,%
+            bookmarksnumbered = true  ,%
+            setpagesize       = false ,%
+            colorlinks        = true  ,%
+            linkcolor         = black ,%
+            urlcolor          = black ,%
+            citecolor         = black]{hyperref}
+
+% IEEE bibliography style
+\bibliographystyle{ieeetr}
+
+% \today now returns date as MONTH YEAR
+\renewcommand{\today}{%
+  \ifcase\month%
+    \or January%
+    \or February%
+    \or March%
+    \or April%
+    \or May%
+    \or June%
+    \or July%
+    \or August%
+    \or September%
+    \or October%
+    \or November%
+    \or December%
+  \fi%
+  \space\number\year%
+}
+
+\input{preamble/Figures}
+\input{preamble/Tables}
+\input{preamble/Listings}

@@ -1,0 +1,28 @@
+\newlength{\TempFigureLength}
+
+\newenvironment{FigureEnvironment}{
+  \vskip 5mm%
+  \begin{figure}[!t]%
+  \begin{center}%
+}{
+  \end{center}%
+  \end{figure}%
+}
+
+\def\FigureSize{1.5}
+
+\newcommand{\Figure}[3][scale=\FigureSize]{%
+  \begin{FigureEnvironment}%
+    \refstepcounter{figure}%
+    \addcontentsline{lof}{section}{Fig.~\thefigure{}~~~{#2}}%
+    \label{fig:#3}%
+    \includegraphics[#1]{figures/#3}\\[1em]%
+    \small%
+    \settowidth{\TempFigureLength}{Fig.~\thefigure{}.~~{#2}}%
+    \ifdim \TempFigureLength > 0.95\columnwidth%
+      \parbox{0.95\columnwidth}{Fig.~\thefigure{}.~~{#2}}%
+    \else%
+      Fig.~\thefigure{}.~~{#2}%
+    \fi%
+  \end{FigureEnvironment}%
+}

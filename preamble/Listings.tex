@@ -1,0 +1,140 @@
+\lstloadlanguages{C++, Matlab, Verilog}
+
+\newcounter{Listing}
+\renewcommand{\theListing}{\arabic{Listing}}
+\newlength{\CodeWidth}
+
+\definecolor{background}{RGB}{240,240,240}
+\definecolor{foreground}{RGB}{56,56,56}
+\definecolor{keyword}{RGB}{244,160,32}
+\definecolor{string}{RGB}{50,153,50}
+\definecolor{comment}{RGB}{148,148,148}
+\definecolor{define}{RGB}{220,150,86}
+
+\lstset{%
+  backgroundcolor    = {\color{background}},%
+  basewidth          = 1.3ex,%
+  basicstyle         = \ttfamily\footnotesize\color{foreground},%
+  commentstyle       = {\color{comment}},%
+  frame              = tb,%
+  framerule          = 0pt,%
+  framexleftmargin   = 1mm,%
+  framextopmargin    = 1mm,%
+  framexbottommargin = 1mm,%
+  keywordstyle       = {\color{keyword}},%
+  showstringspaces   = false,%
+  stringstyle        = {\color{string}},%
+  upquote            = true%
+}
+
+
+% Floating listings
+%------------------
+\newcommand{\StartListing}[2]{
+  \setlength{\CodeWidth}{\columnwidth}
+  \figure[!t]
+  \refstepcounter{Listing}
+  \addcontentsline{lof}{section}{Listing \theListing{}~~~#1}
+  \label{lst:#2}
+  \def\ListingCaption{#1}
+  \noindent\centering\minipage{\CodeWidth}%
+}
+
+\newcommand{\EndListing}{
+  \endminipage\\[0.5em]%
+  {%
+    \small%
+    \settowidth{\TempFigureLength}{Listing~\theListing{}.~~\ListingCaption}%
+    \ifdim \TempFigureLength > \columnwidth%
+      \parbox{\columnwidth}{Listing~\theListing{}.~~\ListingCaption}%
+    \else%
+      Listing~\theListing{}.~~\ListingCaption%
+    \fi%
+  }%
+  \endfigure%
+}
+
+
+% Inline listings
+%----------------
+\newcommand{\StartListingInline}{%
+  \vskip 5mm%
+  \setlength{\CodeWidth}{\columnwidth}%
+  \noindent\centering\minipage{\CodeWidth}%
+}
+
+\newcommand{\EndListingInline}{%
+  \endminipage\par%
+  \vskip 3mm%
+}
+
+
+% Matlab code listing
+%--------------------
+\newcommand{\SetupMatlab}{
+  \lstset{%
+    language         = Matlab,%
+    morecomment      = [l][\color{comment}]{\#}%
+  }%
+}
+
+\lstnewenvironment{Matlab_float}[2]{
+  \SetupMatlab
+  \StartListing{#1}{#2}
+}{
+  \EndListing
+}
+
+\lstnewenvironment{Matlab}{
+  \SetupMatlab
+  \StartListingInline
+}{
+  \EndListingInline
+}
+
+
+% Verilog code listing
+%---------------------
+\newcommand{\SetupVerilog}{
+  \lstset{%
+    language    = Verilog,%
+    morecomment =[l][\color{define}]{`}%
+  }%
+}
+
+\lstnewenvironment{Verilog_float}[2]{
+  \SetupVerilog
+  \StartListing{#1}{#2}
+}{
+  \EndListing
+}
+
+\lstnewenvironment{Verilog}{
+  \SetupVerilog
+  \StartListingInline
+}{
+  \EndListingInline
+}
+
+
+% C++ code listing
+%-----------------
+\newcommand{\SetupCpp}{
+  \lstset{%
+    language = C++%
+  }%
+}
+
+\lstnewenvironment{Cpp_float}[2]{
+  \SetupCpp
+  \StartListing{#1}{#2}
+}{
+  \EndListing
+}
+
+\lstnewenvironment{Cpp}{
+  \SetupCpp
+  \StartListingInline
+}{
+  \EndListingInline
+}
