@@ -6,16 +6,14 @@
 \usepackage{flafter}  % figures, tables and listings will never be floated before they were defined
 \usepackage{graphicx} % to included images
 \usepackage{listings} % for typesetting source code
+\usepackage{nomencl}  % for creating a nomenclature
 \usepackage{textcomp} % used in listings for printing upright quotes
 
 % No hyphenation across lines
 \hyphenpenalty 10000
 
 % One-half-half spacing 
-\linespread{1.2} 
-
-% Abstract heading formatting
-\renewcommand{\abstractname}{\section*{Abstract}}
+\linespread{1.15} 
 
 % Page header modifications
 \setlength{\headheight}{15pt}
@@ -51,6 +49,23 @@
     \or December%
   \fi%
   \space\number\year%
+}
+
+% Change name of ToC
+\renewcommand{\contentsname}{Table of Contents}
+
+% Distance between nomenclature entry and description thereof
+\setlength\nomlabelwidth{3cm}
+
+% Pretty centre page environment for abstract, acknowledgements etc
+\newenvironment{centerpage}[1]{
+  \setlength{\parindent}{0pt}%
+  \newpage\null\vfill%
+  {\centering\section*{#1}}%
+  \addcontentsline{toc}{chapter}{#1}%
+}{
+  \vskip 5cm%
+  \vfill\null\newpage%
 }
 
 \input{preamble/Figures}

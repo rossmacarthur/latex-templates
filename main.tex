@@ -12,14 +12,14 @@
 \pagenumbering{roman}
 \input{frontmatter/Cover}
 \input{frontmatter/Declaration}
-\input{body/0--Abstract}
+\input{frontmatter/Acknowledgments}
+\input{frontmatter/Abstract}
+\tableofcontents                 \addcontentsline{toc}{chapter}{\contentsname}
+\listoffigures                   \addcontentsline{toc}{chapter}{\listfigurename}
+\listoftables                    \addcontentsline{toc}{chapter}{\listtablename}
+\input{frontmatter/Nomenclature} \addcontentsline{toc}{chapter}{\nomname}
 
-\tableofcontents
-\listoffigures\addcontentsline{toc}{chapter}{\listfigurename}
-\listoftables\addcontentsline{toc}{chapter}{\listtablename}\newpage
-
-\pagestyle{fancy}
-\pagenumbering{arabic}
+\newpage\pagestyle{fancy}\pagenumbering{arabic}
 \input{body/1--Introduction}
 \input{body/2--LiteratureReview}
 \input{body/3--Methodology}
@@ -27,7 +27,7 @@
 \input{body/5--Results}
 \input{body/6--Conclusion}
 \renewcommand{\bibname}{References}
-\bibliography{References}\addcontentsline{toc}{chapter}{References}
+\bibliography{References}           \addcontentsline{toc}{chapter}{References}
 
 \end{sloppypar}
 \end{document}

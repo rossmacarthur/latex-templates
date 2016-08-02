@@ -1,15 +1,14 @@
-# UCT Undergraduate Engineering Thesis Template
+# Thesis Template
 
 ## General
 
-This LaTeX template is based on Mohohlo Tsoeu's report template for EEE4022S and John-Philip Taylor's report template for EEE4084F. The recommended compiler is pdfLaTeX or LuaLaTeX.
+This is a LaTeX template made for my undergraduate engineering thesis at the University of Cape Town. It is based on Mohohlo Tsoeu's report template for EEE4022S and John-Philip Taylor's report template for EEE4084F. The recommended compiler is pdfLaTeX or LuaLaTeX.
 
-Basic global information such as author and thesis title can be changed under the "Variables" heading in the `main.tex` file.
-
+Basic global information such as author and thesis title can be changed under the "Variables" heading in the `main.tex` file. The bibliography has been set to adhere to the IEEE standard and bibtex entries can be placed in the References.bib file. Pages that are automatically included / setup in the template: Cover page, Declaration, Abstract, Acknowledgments, Table of Contents, List of Tables, List of Figures, Nomenclature. 
 
 ## New commands
 
-All of these commands have been created for a much easier addition of figures, tables and source code entries into the document. 
+All of these commands have been created for a much easier addition of figures, tables and source code entries into the document, they will all be automatically added to the List of Tables/List of Figures.
 
 ### Figures
 
@@ -74,4 +73,4 @@ This will create a listing with the caption "Description of what this code is" a
 see Listing~\ref{lst:Matlab_code_example}
 ```
 
-This template has support for Matlab, C++ and Verilog code.
+This template has support for Matlab, C++ (`Cpp` when using the environments) and Verilog code.
