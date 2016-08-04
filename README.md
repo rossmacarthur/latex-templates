@@ -15,7 +15,7 @@ All of these commands have been created for a much easier addition of figures, t
 You can insert figures using the `\Figure` command as demonstrated below:
 
 ```latex
-\Figure{Example figure description}{figurename}
+\Figure[width=1\columnwidth]{Example figure description}{figurename}
 ```
 
 This will create a floating figure with the caption "Example figure description" and a label with name `fig:figurename`. `figurename` must be the name of the excluding extension residing in the "figures" folder. The figure can be referenced in text like: 
