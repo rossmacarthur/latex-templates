@@ -60,6 +60,12 @@
 % Distance between nomenclature entry and description thereof
 \setlength\nomlabelwidth{3cm}
 
+% Increase padding around equation environment
+\let\oldequation\equation
+\let\oldendequation\endequation
+\def\equation{\vskip 2mm\oldequation}
+\def\endequation{\oldendequation\vskip 4mm}
+
 % Pretty centre page environment for abstract, acknowledgements etc
 \newenvironment{centerpage}[1]{
   \setlength{\parindent}{0pt}%
