@@ -32,8 +32,8 @@
     \refstepcounter{figure}%
     \addcontentsline{lof}{section}{Fig.~\thefigure{}~~~{#1}}%
     \label{fig:#2}%
-    \begin{tikzpicture}
-    \input{figures/#2.plt}
+    \begin{tikzpicture}[trim axis left, trim axis right]
+    \input{figures/#2}
     \end{tikzpicture}\par
     \small%
     \settowidth{\TempFigureLength}{Fig.~\thefigure{}.~~{#1}}%
