@@ -1,4 +1,4 @@
-\lstloadlanguages{C++, Matlab, Verilog}
+\lstloadlanguages{C++, Matlab, Verilog, Python}
 
 \newcounter{Listing}
 \renewcommand{\theListing}{\arabic{Listing}}
@@ -13,7 +13,7 @@
 
 \lstset{%
   backgroundcolor    = {\color{background}},%
-  basewidth          = 1.3ex,%
+  basewidth          = 1.2ex,%
   basicstyle         = \ttfamily\footnotesize\color{foreground},%
   commentstyle       = {\color{comment}},%
   frame              = tb,%
@@ -27,14 +27,12 @@
   upquote            = true%
 }
 
-
 % Floating listings
-%------------------
 \newcommand{\StartListing}[2]{
   \setlength{\CodeWidth}{\columnwidth}
   \figure[!t]
   \refstepcounter{Listing}
-  \addcontentsline{lof}{section}{Listing \theListing{}~~~#1}
+  \addcontentsline{lof}{section}{List. ~\theListing{}~~~#1}
   \label{lst:#2}
   \def\ListingCaption{#1}
   \noindent\centering\minipage{\CodeWidth}%
@@ -54,9 +52,7 @@
   \endfigure%
 }
 
-
 % Inline listings
-%----------------
 \newcommand{\StartListingInline}{%
   \vskip 5mm%
   \setlength{\CodeWidth}{\columnwidth}%
@@ -68,9 +64,7 @@
   \vskip 3mm%
 }
 
-
 % Matlab code listing
-%--------------------
 \newcommand{\SetupMatlab}{
   \lstset{%
     language         = Matlab,%
@@ -92,9 +86,7 @@
   \EndListingInline
 }
 
-
 % Verilog code listing
-%---------------------
 \newcommand{\SetupVerilog}{
   \lstset{%
     language    = Verilog,%
@@ -116,9 +108,7 @@
   \EndListingInline
 }
 
-
 % C++ code listing
-%-----------------
 \newcommand{\SetupCpp}{
   \lstset{%
     language = C++%
@@ -134,6 +124,27 @@
 
 \lstnewenvironment{Cpp}{
   \SetupCpp
+  \StartListingInline
+}{
+  \EndListingInline
+}
+
+% Python code listing
+\newcommand{\SetupPython}{
+  \lstset{%
+    language = Python%
+  }%
+}
+
+\lstnewenvironment{Python_float}[2]{
+  \SetupPython
+  \StartListing{#1}{#2}
+}{
+  \EndListing
+}
+
+\lstnewenvironment{Python}{
+  \SetupPython
   \StartListingInline
 }{
   \EndListingInline

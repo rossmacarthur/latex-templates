@@ -26,3 +26,21 @@
     \fi%
   \end{FigureEnvironment}%
 }
+
+\newcommand{\Plot}[2]{%
+  \begin{FigureEnvironment}%
+    \refstepcounter{figure}%
+    \addcontentsline{lof}{section}{Fig.~\thefigure{}~~~{#1}}%
+    \label{fig:#2}%
+    \begin{tikzpicture}
+    \input{figures/#2.plt}
+    \end{tikzpicture}\par
+    \small%
+    \settowidth{\TempFigureLength}{Fig.~\thefigure{}.~~{#1}}%
+    \ifdim \TempFigureLength > 0.95\columnwidth%
+      \parbox{0.95\columnwidth}{Fig.~\thefigure{}.~~{#1}}%
+    \else%
+      Fig.~\thefigure{}.~~{#1}%
+    \fi%
+  \end{FigureEnvironment}%
+}

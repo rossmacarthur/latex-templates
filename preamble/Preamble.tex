@@ -1,3 +1,4 @@
+\usepackage{amsmath}  % for equations
 \usepackage{cite}     % for referencing
 \usepackage{color}    % for colouring text, specifically listings in this case
 \usepackage{fancyhdr} % for page headers
@@ -5,6 +6,8 @@
 \usepackage{graphicx} % to included images
 \usepackage{listings} % for typesetting source code
 \usepackage{nomencl}  % for creating a nomenclature
+\usepackage{parskip}  % non-indented, spaced paragraphs
+\usepackage{pgfplots} % for plotting graphs
 \usepackage{textcomp} % used in listings for printing upright quotes
 
 % No hyphenation across lines
@@ -31,7 +34,7 @@
             citecolor         = black]{hyperref}
 
 % IEEE bibliography style
-\bibliographystyle{ieeetr}
+\bibliographystyle{IEEEtran}
 
 % \today now returns date as MONTH YEAR
 \renewcommand{\today}{%
@@ -58,11 +61,18 @@
 % Distance between nomenclature entry and description thereof
 \setlength\nomlabelwidth{3cm}
 
-% Increase padding around equation environment
-\let\oldequation\equation
-\let\oldendequation\endequation
-\def\equation{\vskip 2mm\oldequation}
-\def\endequation{\oldendequation\vskip 4mm}
+% Preferred math symbols
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+% Plot settings
+\pgfplotsset{
+  width=0.8\columnwidth,
+  compat=1.9,
+  every tick label/.append style={scale=0.7},
+  every axis x label/.append style={scale=0.85},
+  every axis y label/.append style={scale=0.85}
+}
 
 % Pretty centre page environment for abstract, acknowledgements etc
 \newenvironment{centerpage}[1]{

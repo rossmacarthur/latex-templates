@@ -4,7 +4,7 @@
 
 This is a LaTeX template made for my undergraduate engineering thesis at the University of Cape Town. It is based on Mohohlo Tsoeu's report template for EEE4022S and John-Philip Taylor's report template for EEE4084F. The recommended compiler is pdfLaTeX or LuaLaTeX.
 
-Basic global information such as author and thesis title can be changed under the "Variables" heading in the `main.tex` file. The bibliography has been set to adhere to the IEEE standard and bibtex entries can be placed in the References.bib file. Pages that are automatically included / setup in the template: Cover page, Declaration, Abstract, Acknowledgments, Table of Contents, List of Tables, List of Figures, Nomenclature. 
+Basic global information such as author and thesis title can be changed under the "Variables" heading in the `main.tex` file. The bibliography has been set to adhere to the IEEE standard and bibtex entries can be placed in the References.bib file. Pages that are automatically included or setup in the template: Cover page, Declaration, Abstract, Acknowledgments, Table of Contents, List of Tables, List of Figures, Nomenclature, Appendices.
 
 ## New commands
 
@@ -15,13 +15,13 @@ All of these commands have been created for a much easier addition of figures, t
 You can insert figures using the `\Figure` command as demonstrated below:
 
 ```latex
-\Figure[width=1\columnwidth]{Example figure description}{figurename}
+\Figure[width=1\columnwidth]{Example figure description}{figure_name}
 ```
 
-This will create a floating figure with the caption "Example figure description" and a label with name `fig:figurename`. `figurename` must be the name of the excluding extension residing in the "figures" folder. The figure can be referenced in text like: 
+This will create a floating figure with the caption "Example figure description" and a label with name `fig:figure_name`. `figure_name` must be the name of the figure, excluding extension, and should reside in the "figures" folder. The figure can be referenced in text like: 
 
 ```latex
-see Figure~\ref{fig:figurename}
+see Figure~\ref{fig:figure_name}
 ```
 
 ### Tables
@@ -74,3 +74,34 @@ see Listing~\ref{lst:Matlab_code_example}
 ```
 
 This template has support for Matlab, C++ (`Cpp` when using the environments) and Verilog code.
+
+
+### Plots
+
+To include a graph drawn in LaTeX using the Pgfplots package the `\Plot` command has been setup. You can use it like this:
+
+```latex
+\Plot{Example plot description.}{plot_name}
+```
+
+This will create a floating plot with the caption "Example plot description" and a label with name `fig:plot_name`. `plot_name` must be the name of the file, excluding the `.tex` extension, should reside in the "figures" folder and must contain a Pgf plot. An example of what this file should contain is:
+
+```latex
+\begin{axis}[
+  axis lines = left,
+  xlabel = {Phase (radians)},
+  ylabel = {Amplitude},
+]
+\addplot [
+  domain=-pi:pi, 
+  samples=1000,
+  color=blue,
+]
+{sin(deg(x))};
+\end{axis}
+```
+The figure can then be referenced in text like:
+
+```latex
+see Figure~\ref{fig:plot_name}
+```
