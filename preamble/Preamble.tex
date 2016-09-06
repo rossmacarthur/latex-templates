@@ -1,4 +1,5 @@
 \usepackage{amsmath}  % for equations
+\usepackage{chngcntr} % for editing counter behaviors
 \usepackage{cite}     % for referencing
 \usepackage{color}    % for colouring text, specifically listings in this case
 \usepackage{fancyhdr} % for page headers
@@ -22,6 +23,9 @@
 \fancyhf{}
 \rhead{\leftmark}
 \cfoot{\thepage}
+
+% Table count goes over chapter boundary
+\counterwithout{table}{chapter}
 
 % Linkable contents page and bookmarked final PDF
 \usepackage[pdftex                    ,%
@@ -74,7 +78,7 @@
   every axis y label/.append style={scale=0.85}
 }
 
-% Pretty centre page environment for abstract, acknowledgements etc
+% Pretty centre page environment for abstract, acknowledgments etc
 \newenvironment{centerpage}[1]{
   \setlength{\parindent}{0pt}%
   \newpage\null\vfill%

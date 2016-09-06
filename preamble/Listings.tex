@@ -71,20 +71,8 @@
     morecomment      = [l][\color{comment}]{\#}%
   }%
 }
-
-\lstnewenvironment{Matlab_float}[2]{
-  \SetupMatlab
-  \StartListing{#1}{#2}
-}{
-  \EndListing
-}
-
-\lstnewenvironment{Matlab}{
-  \SetupMatlab
-  \StartListingInline
-}{
-  \EndListingInline
-}
+\lstnewenvironment{Matlab_float}[2]{\SetupMatlab\StartListing{#1}{#2}}{\EndListing}
+\lstnewenvironment{Matlab}{\SetupMatlab\StartListingInline}{\EndListingInline}
 
 % Verilog code listing
 \newcommand{\SetupVerilog}{
@@ -93,20 +81,8 @@
     morecomment =[l][\color{define}]{`}%
   }%
 }
-
-\lstnewenvironment{Verilog_float}[2]{
-  \SetupVerilog
-  \StartListing{#1}{#2}
-}{
-  \EndListing
-}
-
-\lstnewenvironment{Verilog}{
-  \SetupVerilog
-  \StartListingInline
-}{
-  \EndListingInline
-}
+\lstnewenvironment{Verilog_float}[2]{\SetupVerilog\StartListing{#1}{#2}}{\EndListing}
+\lstnewenvironment{Verilog}{\SetupVerilog\StartListingInline}{\EndListingInline}
 
 % C++ code listing
 \newcommand{\SetupCpp}{
@@ -114,20 +90,8 @@
     language = C++%
   }%
 }
-
-\lstnewenvironment{Cpp_float}[2]{
-  \SetupCpp
-  \StartListing{#1}{#2}
-}{
-  \EndListing
-}
-
-\lstnewenvironment{Cpp}{
-  \SetupCpp
-  \StartListingInline
-}{
-  \EndListingInline
-}
+\lstnewenvironment{Cpp_float}[2]{\SetupCpp\StartListing{#1}{#2}}{\EndListing}
+\lstnewenvironment{Cpp}{\SetupCpp\StartListingInline}{\EndListingInline}
 
 % Python code listing
 \newcommand{\SetupPython}{
@@ -135,17 +99,5 @@
     language = Python%
   }%
 }
-
-\lstnewenvironment{Python_float}[2]{
-  \SetupPython
-  \StartListing{#1}{#2}
-}{
-  \EndListing
-}
-
-\lstnewenvironment{Python}{
-  \SetupPython
-  \StartListingInline
-}{
-  \EndListingInline
-}
+\lstnewenvironment{Python_float}[2]{\SetupPython\StartListing{#1}{#2}}{\EndListing}
+\lstnewenvironment{Python}{\SetupPython\StartListingInline}{\EndListingInline}

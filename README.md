@@ -24,6 +24,12 @@ This will create a floating figure with the caption "Example figure description"
 see Figure~\ref{fig:figure_name}
 ```
 
+The optional parameters that are given are directly passed to the `\includegraphics` command. In other words you can use other parameters such as `scale`, `angle`. For example a 90 degree rotated figure:
+
+```latex
+\Figure[width=1\columnwidth,angle=90]{Example figure description}{figure_name}
+```
+
 ### Tables
 
 You can insert tables using the `\Table` command as demonstrated below:
