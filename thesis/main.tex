@@ -1,36 +1,32 @@
-\documentclass[hidelinks, a4paper, 12pt]{report}
+\documentclass[a4paper, 12pt]{report}
 
 \input{preamble/Preamble}
 
-% Variables
-\newcommand{\thetitle}{A Really Cool Thesis Topic test}
-\newcommand{\theauthor}{John Doe}
-\newcommand{\thestream}{Electrical and Computer}
-\newcommand{\thesupervisor}{S. Z. Dlamini}
+\newcommand{\thetitle}{Modulation and Arbitrary Waveform Generator for an FPGA}
+\newcommand{\theauthor}{Ross MacArthur}
+\newcommand{\thesupervisor}{L. J. Mohapi}
 
 \begin{document}
 \begin{sloppypar}
-
 \pagenumbering{roman}
 \input{frontmatter/Cover}
 \input{frontmatter/Declaration}
-\input{frontmatter/Acknowledgments}
 \input{frontmatter/Abstract}
-\tableofcontents                 \addcontentsline{toc}{chapter}{\contentsname}
-\listoffigures                   \addcontentsline{toc}{chapter}{\listfigurename}
-\listoftables                    \addcontentsline{toc}{chapter}{\listtablename}
-\input{frontmatter/Nomenclature} \addcontentsline{toc}{chapter}{\nomname}
-
-\newpage\pagestyle{fancy}\pagenumbering{arabic}
-\input{body/1--Introduction}
-\input{body/2--LiteratureReview}
-\input{body/3--Methodology}
-\input{body/4--Design}
-\input{body/5--Results}
-\input{body/6--Conclusion}
+\input{frontmatter/Acknowledgments}
+\tableofcontents\addcontentsline{toc}{chapter}{\contentsname}
+\listoffigures\addcontentsline{toc}{chapter}{\listfigurename}
+\lstlistoflistings\addcontentsline{toc}{chapter}{\lstlistlistingname}
+\input{frontmatter/Nomenclature}\addcontentsline{toc}{chapter}{\nomname}
+\newpage
+\pagenumbering{arabic}
+\input{body/Introduction}
+\input{body/LiteratureReview}
+\input{body/Methodology}
+\input{body/Design}
+\input{body/Results}
+\input{body/Conclusion}
 \renewcommand{\bibname}{References}
-\bibliography{References}           \addcontentsline{toc}{chapter}{References}
-\input{body/7--Appendices}
-
+\bibliography{References}\addcontentsline{toc}{chapter}{References}
+\input{body/Appendices}
 \end{sloppypar}
 \end{document}

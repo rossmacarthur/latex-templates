@@ -1,46 +1,48 @@
-\newlength{\TempFigureLength}
+\usepackage{caption}  % captioning figures
+\usepackage{graphicx} % including images
+\usepackage{pgfplots} % plotting graphs
+\usepackage{tikz}     % drawing graphs
 
+% Environment for Figures and Plots
 \newenvironment{FigureEnvironment}{
-  \begin{figure}[!t]%
-  \begin{center}%
-  \vskip 5mm%
+  \begin{figure}[!ht]
+  \begin{center}
 }{
-  \end{center}%
-  \end{figure}%
+  \end{center}
+  \end{figure}
 }
 
-\def\FigureSize{0.8}
-
-\newcommand{\Figure}[3][scale=\FigureSize]{%
-  \begin{FigureEnvironment}%
-    \refstepcounter{figure}%
-    \addcontentsline{lof}{section}{Fig.~\thefigure{}~~~{#2}}%
-    \label{fig:#3}%
-    \includegraphics[#1]{figures/#3}\\[1em]%
-    \small%
-    \settowidth{\TempFigureLength}{Fig.~\thefigure{}.~~{#2}}%
-    \ifdim \TempFigureLength > 0.95\columnwidth%
-      \parbox{0.95\columnwidth}{Fig.~\thefigure{}.~~{#2}}%
-    \else%
-      Fig.~\thefigure{}.~~{#2}%
-    \fi%
-  \end{FigureEnvironment}%
+% \Figure[include_options]{caption}{figure_name}
+\newcommand{\Figure}[3][scale=\FigureSize]{
+  \begin{FigureEnvironment}
+    \includegraphics[#1]{figures/#3}
+    \caption{#2}
+    \label{fig:#3}
+  \end{FigureEnvironment}
 }
 
-\newcommand{\Plot}[2]{%
-  \begin{FigureEnvironment}%
-    \refstepcounter{figure}%
-    \addcontentsline{lof}{section}{Fig.~\thefigure{}~~~{#1}}%
-    \label{fig:#2}%
+% \Plot{caption}{plot_name}
+\newcommand{\Plot}[2]{
+  \begin{FigureEnvironment}
+    \tikzsetnextfilename{#2}
     \begin{tikzpicture}[trim axis left, trim axis right]
     \input{figures/#2}
-    \end{tikzpicture}\par
-    \small%
-    \settowidth{\TempFigureLength}{Fig.~\thefigure{}.~~{#1}}%
-    \ifdim \TempFigureLength > 0.95\columnwidth%
-      \parbox{0.95\columnwidth}{Fig.~\thefigure{}.~~{#1}}%
-    \else%
-      Fig.~\thefigure{}.~~{#1}%
-    \fi%
-  \end{FigureEnvironment}%
+    \end{tikzpicture}
+    \caption{#1}
+    \label{fig:#2}
+  \end{FigureEnvironment}
+}
+
+% Externalize TikZ plots so they don't recompile every time
+\newcommand{\externaldir}{figures/cache/}
+\usetikzlibrary{external}
+\tikzexternalize[prefix=\externaldir]
+
+% Plot settings
+\pgfplotsset{
+  compat=1.13,
+  width=0.7\columnwidth,
+  every tick label/.append style={scale=0.7},
+  every axis x label/.append style={scale=0.85},
+  every axis y label/.append style={scale=0.85}
 }

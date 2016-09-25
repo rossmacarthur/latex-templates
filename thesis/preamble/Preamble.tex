@@ -1,94 +1,50 @@
-\usepackage{amsmath}  % for equations
-\usepackage{chngcntr} % for editing counter behaviors
-\usepackage{cite}     % for referencing
-\usepackage{color}    % for colouring text, specifically listings in this case
-\usepackage{fancyhdr} % for page headers
-\usepackage{flafter}  % figures, tables and listings will never be floated before they were defined
-\usepackage{graphicx} % to included images
-\usepackage{listings} % for typesetting source code
-\usepackage{nomencl}  % for creating a nomenclature
+\usepackage{amsmath}  % improved equation writing
+\usepackage{cite}     % referencing
+\usepackage{nomencl}  % creating a nomenclature
 \usepackage{parskip}  % non-indented, spaced paragraphs
-\usepackage{pgfplots} % for plotting graphs
-\usepackage{textcomp} % used in listings for printing upright quotes
+
+% Linkable contents page and bookmarked final PDF
+\usepackage[pdftex,
+            bookmarks=true,
+            bookmarksnumbered=true,
+            setpagesize=false,
+            colorlinks=true,
+            linkcolor=black,
+            urlcolor=black,
+            citecolor=black]{hyperref}
 
 % No hyphenation across lines
 \hyphenpenalty 10000
 
 % One-half-half spacing 
-\linespread{1.15} 
-
-% Page header modifications
-\setlength{\headheight}{15pt}
-\renewcommand{\headrulewidth}{0pt}
-\fancyhf{}
-\rhead{\leftmark}
-\cfoot{\thepage}
-
-% Table count goes over chapter boundary
-\counterwithout{table}{chapter}
-
-% Linkable contents page and bookmarked final PDF
-\usepackage[pdftex                    ,%
-            bookmarks         = true  ,%
-            bookmarksnumbered = true  ,%
-            setpagesize       = false ,%
-            colorlinks        = true  ,%
-            linkcolor         = black ,%
-            urlcolor          = black ,%
-            citecolor         = black]{hyperref}
-
-% IEEE bibliography style
-\bibliographystyle{IEEEtran}
-
-% \today now returns date as MONTH YEAR
-\renewcommand{\today}{%
-  \ifcase\month%
-    \or January%
-    \or February%
-    \or March%
-    \or April%
-    \or May%
-    \or June%
-    \or July%
-    \or August%
-    \or September%
-    \or October%
-    \or November%
-    \or December%
-  \fi%
-  \space\number\year%
-}
-
-% Change name of ToC
-\renewcommand{\contentsname}{Table of Contents}
-
-% Distance between nomenclature entry and description thereof
-\setlength\nomlabelwidth{3cm}
+\linespread{1.15}
 
 % Preferred math symbols
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\phi}{\varphi}
 
-% Plot settings
-\pgfplotsset{
-  compat=1.5,
-  width=0.7\columnwidth,
-  every tick label/.append style={scale=0.7},
-  every axis x label/.append style={scale=0.85},
-  every axis y label/.append style={scale=0.85}
-}
+% Change name of ToC
+\renewcommand{\contentsname}{Table of Contents}
 
-% Pretty centre page environment for abstract, acknowledgments etc
+% IEEE bibliography style
+\bibliographystyle{IEEEtran}
+
+% Distance between nomenclature entry and description thereof
+\setlength\nomlabelwidth{3cm}
+
+% Registered symbol
+\newcommand{\R}{\textsuperscript{\textregistered}}
+
+% Pretty center page environment for abstract, acknowledgements etc
 \newenvironment{centerpage}[1]{
-  \setlength{\parindent}{0pt}%
-  \newpage\null\vfill%
-  {\centering\section*{#1}}%
-  \addcontentsline{toc}{chapter}{#1}%
+  \setlength{\parindent}{0pt}
+  \newpage\null\vfill
+  {\centering\section*{#1}}
+  \addcontentsline{toc}{chapter}{#1}
 }{
-  \vskip 5cm%
-  \vfill\null\newpage%
+  \vskip 5cm
+  \vfill\null\newpage
 }
 
 \input{preamble/Figures}
-\input{preamble/Tables}
 \input{preamble/Listings}
