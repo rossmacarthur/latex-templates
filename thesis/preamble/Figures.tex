@@ -3,6 +3,12 @@
 \usepackage{pgfplots} % plotting graphs
 \usepackage{tikz}     % drawing graphs
 
+% Caption settings
+\captionsetup{
+  width=0.9\textwidth,
+  font=small
+}
+
 % Environment for Figures and Plots
 \newenvironment{FigureEnvironment}{
   \begin{figure}[!ht]
@@ -41,7 +47,9 @@
 % Plot settings
 \pgfplotsset{
   compat=1.13,
-  width=0.7\columnwidth,
+  width=0.6\linewidth,
+  height=6cm,
+  label style={font=\small},
   every tick label/.append style={scale=0.7},
   every axis x label/.append style={scale=0.85},
   every axis y label/.append style={scale=0.85}
