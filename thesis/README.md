@@ -1,4 +1,4 @@
-# LaTeX Thesis Template
+# Thesis Template
 
 Template made for my undergraduate engineering thesis at UCT. Recommended compiler is pdfLaTeX.
 
