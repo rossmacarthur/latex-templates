@@ -1,10 +1,8 @@
 # LaTeX Thesis Template
 
-## General
+Template made for my undergraduate engineering thesis at UCT. Recommended compiler is pdfLaTeX.
 
-This is a LaTeX template made for my undergraduate engineering thesis at the University of Cape Town. It is based on Mohohlo Tsoeu's report template for EEE4022S and John-Philip Taylor's report template for EEE4084F. The recommended compiler is pdfTeX or LuaTeX.
-
-Basic global information such as author and thesis title can be changed in the `main.tex` file. The bibliography has been set to adhere to the IEEE standard and BibTeX entries can be placed in the References.bib file. Pages that are automatically included or setup in the template are: Cover page, Declaration, Abstract, Acknowledgments, Table of Contents, List of Figures, Code Listings, Nomenclature, Appendices.
+Basic global information such as author and thesis title can be changed in the `main.tex` file. The bibliography has been set to adhere to the IEEE standard and BibTeX entries can be placed in the References.bib file. Pages that are automatically included or setup in the template are: Cover page, Declaration, Abstract, Acknowledgments, Table of Contents, List of Figures, List of Tables, Listings, Nomenclature, Appendices.
 
 ## Commands
 
@@ -22,30 +20,21 @@ This will create a figure with the caption "Example figure description" and a la
 \Figure[width=1\columnwidth, angle=90]{Example figure description}{figure_name}
 ```
 
-### Plots
+### Tables
 
-LaTeX drawn plots using the PGFPlots package can be inserted using the `\Plot` command:
-
-```latex
-\Plot{Example plot description.}{plot_name}
-```
-
-This will create a drawn figure with the caption "Example plot description" and a label with name `fig:plot_name`. `plot_name` must be the name of the file, excluding the `.tex` extension, should reside in the "figures" folder and must contain a PGF plot. An example of what this file should contain is:
+You can insert tables using the `\Table` command as demonstrated below:
 
 ```latex
-\begin{axis}[
-  axis lines = left,
-  xlabel = {Phase (radians)},
-  ylabel = {Amplitude},
-]
-\addplot [
-  domain=-pi:pi, 
-  samples=1000,
-  color=blue,
-]
-{sin(deg(x))};
-\end{axis}
+\Table{My Informative Table}{|l|c|r|}{ % this format specifies 3 columns with left, center and right alignment
+  \textbf{Heading 1} & \textbf{Heading 2} & \textbf{Heading 3}
+}{
+  Data & 123 & 321 \\
+  Data & 456 & 654 \\
+  Data & 789 & 987 \\
+}{Example}
 ```
+
+This will create a floating table with the caption "My Informative Table" and a label with name `tab:Example`.
 
 ### Listings
 
@@ -53,9 +42,9 @@ You can insert syntax highlighted source code using:
 
 ```latex
 \begin{lstlisting}[language=Matlab, caption={Code description}, label={lst:example_code}]
-  # Example code
-  x = linspace(0, 2*pi, 1000);
-  y = sin(x);
-  plot(x, y); grid on;
+# Example code
+x = linspace(0, 2*pi, 1000);
+y = sin(x);
+plot(x, y); grid on;
 \end{lstlisting}
 ```
