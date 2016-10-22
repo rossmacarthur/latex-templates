@@ -24,8 +24,7 @@
   \begin{figure}[!htbp]
     \begin{center}
       \includegraphics[#1]{figures/#3}
-      \caption{#2}
-      \label{fig:#3}
+      \caption{#2}\label{fig:#3}
     \end{center}
   \end{figure}
 }
@@ -34,11 +33,10 @@
 \newcommand{\Table}[5]{
   \begin{table}[!htbp]
     \begin{center}
-      \caption{#1}
+      \caption{#1}\label{tab:#5}
         \begin{tabular}{#2}
           \hline#3\\\hline#4\hline
         \end{tabular}
-      \label{tab:#5}
     \end{center}
   \end{table}
 }

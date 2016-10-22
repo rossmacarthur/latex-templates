@@ -2,27 +2,14 @@
 
 \input{preamble/Preamble}
 
-\newcommand{\thetitle}{A Really Cool Thesis Topic test}
+\newcommand{\thetitle}{A Really Cool Thesis Topic}
 \newcommand{\theauthor}{John Doe}
 \newcommand{\thesupervisor}{S. Z. Dlamini}
 
 \begin{document}
 \begin{sloppypar}
 \pagenumbering{roman}
-\input{frontmatter/Cover}
-\input{frontmatter/Declaration}
-\input{frontmatter/Abstract}
-\input{frontmatter/Acknowledgments}
-\cleardoublepage\phantomsection
-\tableofcontents\addcontentsline{toc}{chapter}{\contentsname}
-\cleardoublepage\phantomsection
-\listoffigures\addcontentsline{toc}{chapter}{\listfigurename}
-\cleardoublepage\phantomsection
-\listoftables\addcontentsline{toc}{chapter}{\listtablename}
-\cleardoublepage\phantomsection
-\lstlistoflistings\addcontentsline{toc}{chapter}{\lstlistlistingname}
-\input{frontmatter/Nomenclature}\addcontentsline{toc}{chapter}{\nomname}
-\newpage
+\input{frontmatter/Frontmatter}
 \pagenumbering{arabic}
 \input{body/Introduction}
 \input{body/LiteratureReview}
@@ -30,7 +17,6 @@
 \input{body/Design}
 \input{body/Results}
 \input{body/Conclusion}
-\renewcommand{\bibname}{References}
 \bibliography{References}\addcontentsline{toc}{chapter}{References}
 \input{body/Appendices}
 \end{sloppypar}
