@@ -1,0 +1,82 @@
+\usepackage{fontawesome} % fontawesome icons in text
+\usepackage{fontspec}    % loading and setting fonts
+\usepackage{geometry}    % change page margins
+\usepackage{hyperref}    % links
+\usepackage{parskip}     % non-indented paragraphing
+\usepackage{tabularx}    % better tabular environment
+\usepackage{tikz}        % graphic drawing
+\usepackage{xcolor}      % colors
+
+% Geometry
+\geometry{
+  left   = 2cm,
+  top    = 2.5cm,
+  right  = 2cm,
+  bottom = 2.5cm,
+  nohead, nofoot
+}
+
+% No hyphenation across lines
+\sloppy
+\exhyphenpenalty 10000
+\hyphenpenalty 10000
+
+% No page numbering
+\pagestyle{empty}
+
+% Colors
+\definecolor{white}{HTML}{D8D8D8}
+\definecolor{darkgray}{HTML}{282828}
+\definecolor{mediumgray}{HTML}{585858}
+\definecolor{theme}{HTML}{6F9DAE}
+
+% Fonts
+\setmainfont[
+  Path        = {./fonts/},
+  Extension   = {.ttf},
+  Scale       = 1.1,
+  Color       = darkgray,
+  BoldFont    = AdobeGaramond-Bold,
+]{AdobeGaramond-Regular}
+
+\newfontfamily\themefont[
+  Path        = {./fonts/},
+  LetterSpace = 30,
+  WordSpace   = 2,
+  Color       = darkgray
+]{Didot-Regular.ttf}
+
+\newfontfamily\headingfont[
+  Path        = {./fonts/},
+  Scale       = 0.8,
+  LetterSpace = 10,
+  Color       = darkgray,
+  BoldFont    = AdobeGaramond-Bold,
+]{AdobeGaramond-Regular.ttf}
+
+% Smart header
+\usetikzlibrary{calc}
+\newcommand{\header}[2]{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[rectangle,anchor=north,minimum width=\paperwidth,minimum height=4cm] (box) at (current page.north) {};
+    \node[anchor=center] (name) at ($(box.center)$) {\Huge\themefont\uppercase{#1}};
+    \node[anchor=center] (links) at ($(box.center)!.5!(box.south)$) {\addfontfeature{Color=theme}\color{darkgray}#2};
+  \end{tikzpicture}
+  \vspace{1cm}
+}
+
+% Renew headings
+\renewcommand{\section}[1]{\vspace{2mm}{\Large\headingfont\addfontfeature{Color=theme}\uppercase{#1}\par}}
+\renewcommand{\subsection}[1]{\vspace{.5mm}{\bfseries#1\par}}
+\newcommand{\textfbf}[1]{{\footnotesize\bfseries\addfontfeature{Color=mediumgray}#1}}
+
+% New commands
+\newenvironment{entrylist}{
+  \vspace{-.5mm}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lp{0.8\textwidth}}
+}{
+  \end{tabular*}
+  \vspace{-2mm}
+}
+
+\newcommand{\entry}[4]{\rule{0pt}{5mm}\textfbf{#1}&\textbf{#2}\hfill\textfbf{#3}\\[1mm]\null&#4\\}
